@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-NewsReader::Application.load_tasks
+NewReader::Application.load_tasks

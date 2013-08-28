@@ -46,3 +46,5 @@ group :development do
 end
 
 gem "backbone-on-rails"
+gem "simple-rss"
+require 'open-uri'
