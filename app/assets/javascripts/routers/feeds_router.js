@@ -1,5 +1,10 @@
 NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
 
+	initialize: function ($rootEl, feeds) {
+		this.$rootEl = $rootEl;
+		this.feeds = feeds;
+	},
+
 	routes: {
 		"": "index",
 		"feeds/:id": "show"
@@ -9,21 +14,23 @@ NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
 		var that = this;
 
 		var feedsIndexView = new NewsReader.Views.FeedsIndexView({
-			//whatever I plan to pass to my index
+			collection: that.feeds
 		});
 
-		// I know I'm going to need to render something to my $rootEl, which I need.
-		// Render method is in the FeedsIndexView
-	}
+		that.$rootEl.html(feedsIndexView.render().$el);
+	},
 
 	show: function (id) {
 		var that = this;
+		var feed = this.feeds.get(id);
+
+		debugger
 
 		var feedShowView = new NewsReader.Views.FeedShowView({
-			//whatever I plan to pass to the show view
+			model: feed
 		});
 
-		// I render here, like before.
+		that.$rootEl.html(feedShowView.render().$el);
 	}
 
 })

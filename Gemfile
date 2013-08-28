@@ -49,3 +49,4 @@ gem "backbone-on-rails"
 gem 'ejs'
 gem "simple-rss"
 require 'open-uri'
+gem 'rabl'
