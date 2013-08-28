@@ -1,4 +1,4 @@
-collection @feeds
+object @feed
 attributes :title, :url, :id
 
 child(:entries) do

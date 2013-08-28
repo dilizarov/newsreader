@@ -1,7 +1,11 @@
-<%= feed.escape('title') %>
-
-<% feed.entries.each( function(entry) { %>
-
-	<li><%= entry %></li>
+<h2><%= feed.escape('title') %></h2>
+<br><br>
+<form id="refresh"><input type="submit" value="Refresh"></form>
+<br><br>
+<% feed.get('entries').each( function(entry) { %>
+	<li><a href="#/feeds/<%= entry.escape('feed_id') %>/entries/<%= entry.id %>" id="entry<%= entry.id %>"><%= entry.escape('title') %></a></li>
 
 <% }); %>
+
+<br><br>
+<a href="#/">Go back!</a>
