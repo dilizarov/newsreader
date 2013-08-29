@@ -3,6 +3,8 @@ NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
 	initialize: function ($rootEl, feeds) {
 		this.$rootEl = $rootEl;
 		this.feeds = feeds;
+		this.authView = new NewsReader.Views.AuthView();
+		$('.loginInfo').html(this.authView.render().$el);
 	},
 
 	routes: {

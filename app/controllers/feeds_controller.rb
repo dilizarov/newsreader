@@ -1,6 +1,8 @@
 class FeedsController < ApplicationController
+
   def index
     @feeds = Feed.all
+    @user = current_user
 
     respond_to do |format|
       format.html { render :index }

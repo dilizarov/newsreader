@@ -8,27 +8,18 @@
 </head>
 <body>
 <center>
-
-<div class="loginInfo">
-	<% if logged_in? %>
-		<%= current_user.username %>
-		<%= Time.zone.now %>
-	<% else %>
-		<form id="login">
-			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-			<label for="user_username">Username:</label>
-			<input id="user_username" type="text" name="user[username]"><br>
-			<label for="user_password">Password:</label>
-			<input id="user_password" type="password" name="user[password]"><br>
-			<input type="submit" value="Login" id="1">
-			<input type="submit" value="Sign up" id="2">
-		</form>
-	<% end %>
-</div>
+<div class="errors"></div>
+<div class="loginInfo"></div>
 </center>
 <br><hr>
 
-<%= yield %>"
+<script type="text/javascript">
+	window.currentUser = {
+		username: "<%= current_user.username if current_user%>"
+	}
+</script>
+
+<%= yield %>
 
 </body>
 </html>
