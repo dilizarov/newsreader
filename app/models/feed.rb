@@ -1,6 +1,7 @@
 class Feed < ActiveRecord::Base
   attr_accessible :title, :url
 
+  belongs_to :user
   has_many :entries, :dependent => :destroy
 
   def self.find_or_create_by_url(url)
