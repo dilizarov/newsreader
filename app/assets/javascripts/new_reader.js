@@ -3,11 +3,11 @@ window.NewsReader = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function($rootEl) {
+  initialize: function($feedEl, $subEl) {
 		var feeds = new NewsReader.Collections.Feeds();
 		feeds.fetch({
 			success: function(responseData) {
-				new NewsReader.Routers.FeedsRouter($rootEl, responseData);
+				new NewsReader.Routers.FeedsRouter($feedEl, $subEl, responseData);
 				Backbone.history.start();
 			}
 		});
@@ -15,5 +15,5 @@ window.NewsReader = {
 };
 
 $(document).ready(function(){
-	NewsReader.initialize($('.content'));
+	NewsReader.initialize($('.feeds'), $('.feedEntries'));
 });

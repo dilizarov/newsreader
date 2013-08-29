@@ -11,3 +11,32 @@
  *= require_self
  *= require_tree .
  */
+
+.feeds {
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+
+.feedEntries {
+	float: right;
+	width: 75%;
+}
+
+.verticalBar {
+	position: absolute;
+	left: 20%;
+	width: 1%;
+	top: 50px;
+	bottom: 0;
+	border-right: 1px solid black;
+	margin: 0% 2%;
+}
+
+.hr {
+	position: relative;
+	margin-left: 15em;
+	margin-right: 15em;
+	width:65em;
+	height:1px;
+}

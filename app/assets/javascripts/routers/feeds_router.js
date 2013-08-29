@@ -1,7 +1,8 @@
 NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
 
-	initialize: function ($rootEl, feeds) {
+	initialize: function ($rootEl, $subEl, feeds) {
 		this.$rootEl = $rootEl;
+		this.$subEl = $subEl;
 		this.feeds = feeds;
 		this.authView = new NewsReader.Views.AuthView();
 		$('.loginInfo').html(this.authView.render().$el);
@@ -31,7 +32,8 @@ NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
 			model: feed
 		});
 
-		that.$rootEl.html(feedShowView.render().$el);
+		that.index();
+		that.$subEl.html(feedShowView.render().$el);
 	},
 
 	showEntry: function (feed_id, id) {
@@ -44,7 +46,8 @@ NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
 			model: entry
 		});
 
-		that.$rootEl.html(entryShowView.render().$el);
+		that.index();
+		that.$subEl.html(entryShowView.render().$el);
 
 	}
 
