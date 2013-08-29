@@ -20,5 +20,9 @@ module SessionsHelper
   def require_no_current_user!
     redirect_to user_url(current_user) unless current_user.nil?
   end
+
+  def logged_in?
+    !!current_user
+  end
 end
 

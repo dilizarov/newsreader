@@ -7,10 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<br><br>
-	<hr>
+<center>
 
-<%= yield %>
+<div class="loginInfo">
+	<% if logged_in? %>
+		<%= current_user.username %>
+		<%= Time.zone.now %>
+	<% else %>
+		<form id="login">
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+			<label for="user_username">Username:</label>
+			<input id="user_username" type="text" name="user[username]"><br>
+			<label for="user_password">Password:</label>
+			<input id="user_password" type="password" name="user[password]"><br>
+			<input type="submit" value="Login" id="1">
+			<input type="submit" value="Sign up" id="2">
+		</form>
+	<% end %>
+</div>
+</center>
+<br><hr>
+
+<%= yield %>"
 
 </body>
 </html>
